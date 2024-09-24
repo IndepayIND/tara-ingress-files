@@ -1,0 +1,19 @@
+apiVersion: "networking.k8s.io/v1"
+kind: "Ingress"
+metadata:
+  name: "merchant-web-ingress"
+  namespace: "dev-tara"
+spec:
+  ingressClassName: "public"
+  tls:
+    - secretName: "indepay-certs"
+  rules:
+    - host: "bp-merchant-dev.tara.app"
+      http:
+        paths:
+          - pathType: "ImplementationSpecific"
+            backend:
+              service:
+                name: "merchantweb-dev-dev"
+                port:
+                  number: 80

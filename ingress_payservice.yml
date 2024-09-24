@@ -1,0 +1,19 @@
+apiVersion: "networking.k8s.io/v1"
+kind: "Ingress"
+metadata:
+  name: "pay-web-ingress"
+  namespace: "dev-tara"
+spec:
+  ingressClassName: "public"
+  tls:
+    - secretName: "indepay-certs"
+  rules:
+    - host: "bp-pay-dev.tara.app"
+      http:
+        paths:
+          - pathType: "ImplementationSpecific"
+            backend:
+              service:
+                name: "pay-service-dev-dev"
+                port:
+                  number: 80
