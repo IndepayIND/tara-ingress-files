@@ -16,15 +16,6 @@ spec:
           - pathType: "ImplementationSpecific"
             backend:
               service:
-                name: "gateway-dev-dev"
-                port:
-                  number: 9008
-    - host: "bp-alpha.tara.app"
-      http:
-        paths:
-          - pathType: "ImplementationSpecific"
-            backend:
-              service:
-                name: "gateway-dev-dev"
+                name: "gateway-service-dev-dev"
                 port:
                   number: 9008
