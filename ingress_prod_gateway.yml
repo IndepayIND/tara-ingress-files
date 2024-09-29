@@ -1,0 +1,21 @@
+apiVersion: "networking.k8s.io/v1"
+kind: "Ingress"
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: "0"
+  name: "gateway-ingress"
+  namespace: "prod-pci-tara"
+spec:
+  ingressClassName: "public"
+  rules:
+    - host: "bp-prod.tara.app"
+      http:
+        paths:
+          - backend:
+              service:
+                name: "gateway-service-prod-prod"
+                port:
+                  number: 9008
+            pathType: "ImplementationSpecific"
+  tls:
+    - secretName: "indepay-certs"
