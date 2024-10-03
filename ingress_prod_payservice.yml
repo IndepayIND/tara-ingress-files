@@ -8,7 +8,7 @@ spec:
   tls:
     - secretName: "indepay-certs"
   rules:
-    - host: "bp-pay.tara.app"
+    - host: "pay.tara.app"
       http:
         paths:
           - pathType: "ImplementationSpecific"
