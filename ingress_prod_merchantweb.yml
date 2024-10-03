@@ -6,7 +6,7 @@ metadata:
 spec:
   ingressClassName: "public"
   rules:
-    - host: "bp-merchant.tara.app"
+    - host: "merchant.tara.app"
       http:
         paths:
           - backend:
