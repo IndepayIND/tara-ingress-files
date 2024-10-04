@@ -8,7 +8,7 @@ metadata:
 spec:
   ingressClassName: "public"
   rules:
-    - host: "prod.tara.app"
+    - host: "bp-prod.tara.app"
       http:
         paths:
           - backend:
