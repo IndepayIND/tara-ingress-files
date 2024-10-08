@@ -1,0 +1,19 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: pgrouter-internal
+  namespace: prod-pci-tara
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: pgrouter-internal.tara.app
+    http:
+      paths:
+      - backend:
+          service:
+            name: pgrouter-prod-prod
+            port:
+              number: 9050
+        path: /
+        pathType: Prefix
