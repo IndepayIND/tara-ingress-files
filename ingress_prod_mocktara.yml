@@ -1,0 +1,19 @@
+apiVersion: "networking.k8s.io/v1"
+kind: "Ingress"
+metadata:
+  name: "mock-web-ingress"
+  namespace: "prod-non-pci-tara"
+spec:
+  ingressClassName: "public"
+  tls:
+    - secretName: "indepay-certs"
+  rules:
+    - host: "mock-prod.tara.app"
+      http:
+        paths:
+          - pathType: "ImplementationSpecific"
+            backend:
+              service:
+                name: "mock-web-merchant-prod-prod"
+                port:
+                  number: 80
